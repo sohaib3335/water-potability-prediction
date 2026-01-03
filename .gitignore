@@ -28,3 +28,12 @@ generate_report.py
 Water_Potability_ML_Report.md
 Water_Potability_ML_Report.docx
 model_comparison_results.csv
+
+# Assignment document (not for submission)
+Assignment for IP*.pdf
+
+# Duplicate/unnecessary files
+requirements_streamlit.txt
+
+# Temporary Word files
+~$*.docx

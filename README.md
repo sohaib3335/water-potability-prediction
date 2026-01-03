@@ -1,8 +1,8 @@
-# Water Potability Prediction System 💧
+# Water Potability Prediction System
 
 A Machine Learning web application that predicts whether water is safe for human consumption based on physicochemical parameters.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project implements and compares four machine learning algorithms for water potability classification:
 - Logistic Regression
@@ -10,21 +10,21 @@ This project implements and compares four machine learning algorithms for water 
 - XGBoost
 - LightGBM
 
-## 📊 Dataset
+## Dataset
 
 The Water Potability dataset contains 3,276 water samples with 9 quality indicators:
 - pH, Hardness, Solids, Chloramines, Sulfate
 - Conductivity, Organic Carbon, Trihalomethanes, Turbidity
 
-## 🚀 Live Demo
+## Live Demo
 
-[View the Streamlit App](https://your-app-name.streamlit.app)
+[View the Streamlit App](https://sohaib3335-water-potability-prediction-app-i4y2u9.streamlit.app)
 
-## 🛠️ Installation
+## Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/water-potability-prediction.git
+git clone https://github.com/sohaib3335/water-potability-prediction.git
 cd water-potability-prediction
 
 # Install dependencies
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## 📈 Results
+## Results
 
 | Algorithm | Accuracy | Precision | Recall | F1-Score |
 |-----------|----------|-----------|--------|----------|
@@ -43,7 +43,7 @@ streamlit run app.py
 | XGBoost | 63.72% | 0.55 | 0.36 | 0.44 |
 | LightGBM | 64.63% | 0.58 | 0.36 | 0.44 |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── app.py                      # Streamlit web application
@@ -53,10 +53,11 @@ streamlit run app.py
 └── README.md                   # Project documentation
 ```
 
-## 👤 Author
+## Author
 
-**MSc Computing - Independent Project**
+**Sohaib Farooq**  
+Email: sohaib.farooq@bigacademy.com
 
-## 📄 License
+## License
 
 This project is for educational purposes.
