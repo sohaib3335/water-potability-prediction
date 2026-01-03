@@ -29,6 +29,16 @@ Water_Potability_ML_Report.md
 Water_Potability_ML_Report.docx
 model_comparison_results.csv
 
+# Extra folders
+extras/
+figures/
+.devcontainer/
+.playwright-mcp/
+screenshots/
+
+# Word temp files
+~$*
+
 # Assignment document (not for submission)
 Assignment for IP*.pdf
 
