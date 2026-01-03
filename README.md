@@ -31,7 +31,7 @@ cd water-potability-prediction
 pip install -r requirements.txt
 
 # Run the app
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 ## Results
@@ -46,7 +46,7 @@ streamlit run app.py
 ## Project Structure
 
 ```
-├── app.py                      # Streamlit web application
+├── streamlit_app.py            # Streamlit web application
 ├── Water_Potability_ML_Project.ipynb  # Jupyter notebook with analysis
 ├── water_potability.csv        # Dataset
 ├── requirements.txt            # Python dependencies
