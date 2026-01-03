@@ -26,7 +26,7 @@ from sklearn.metrics import (accuracy_score, confusion_matrix,
 # Page Configuration
 st.set_page_config(
     page_title="Water Potability Prediction",
-    page_icon="💧",
+    page_icon="W",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -126,33 +126,33 @@ def train_models(df):
 
 # Main App
 def main():
-    st.markdown('<h1 class="main-header">💧 Water Potability Prediction System</h1>', 
+    st.markdown('<h1 class="main-header">Water Potability Prediction System</h1>', 
                 unsafe_allow_html=True)
     
     # Sidebar
     st.sidebar.image("https://img.icons8.com/color/96/000000/water.png", width=80)
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", 
-                            ["🏠 Home", "📊 Data Exploration", "🤖 Model Training", 
-                             "🔮 Prediction", "📈 Model Comparison"])
+                            ["Home", "Data Exploration", "Model Training", 
+                             "Prediction", "Model Comparison"])
     
     # Load data
     try:
         df = load_data()
         trained_models, results, scaler, X_test, y_test, feature_names = train_models(df)
     except FileNotFoundError:
-        st.error("⚠️ Dataset file 'water_potability.csv' not found. Please ensure it's in the same directory.")
+        st.error("Dataset file 'water_potability.csv' not found. Please ensure it's in the same directory.")
         return
     
     # Page: Home
-    if page == "🏠 Home":
+    if page == "Home":
         st.markdown("### Welcome to the Water Potability Prediction System")
         
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown("""
-            #### 🎯 About This Project
+            #### About This Project
             
             This application predicts whether water is **safe for human consumption** 
             based on various water quality parameters using Machine Learning algorithms.
@@ -166,14 +166,14 @@ def main():
             
         with col2:
             st.markdown("""
-            #### 📊 Dataset Overview
+            #### Dataset Overview
             """)
             st.metric("Total Samples", len(df))
             st.metric("Features", len(df.columns) - 1)
             st.metric("Target Classes", "2 (Potable / Not Potable)")
         
         st.markdown("---")
-        st.markdown("#### 📋 Features Description")
+        st.markdown("#### Features Description")
         
         features_info = pd.DataFrame({
             'Feature': ['pH', 'Hardness', 'Solids', 'Chloramines', 'Sulfate', 
@@ -194,7 +194,7 @@ def main():
         
         # Quick Prediction Section on Home Page
         st.markdown("---")
-        st.markdown("### 🔮 Quick Prediction")
+        st.markdown("### Quick Prediction")
         st.markdown("Enter water quality parameters to predict if water is safe for consumption:")
         
         col1, col2, col3 = st.columns(3)
@@ -217,7 +217,7 @@ def main():
         # Model selection
         home_selected_model = st.selectbox("Select Model for Prediction", list(trained_models.keys()), key="home_model")
         
-        if st.button("🔍 Predict Water Potability", type="primary", key="home_predict"):
+        if st.button("Predict Water Potability", type="primary", key="home_predict"):
             # Prepare input
             home_input_data = np.array([[home_ph, home_hardness, home_solids, home_chloramines, home_sulfate, 
                                    home_conductivity, home_organic_carbon, home_trihalomethanes, home_turbidity]])
@@ -229,7 +229,7 @@ def main():
             home_probability = home_model.predict_proba(home_input_scaled)[0]
             
             st.markdown("---")
-            st.markdown("### 📊 Prediction Result")
+            st.markdown("### Prediction Result")
             
             result_col1, result_col2 = st.columns(2)
             
@@ -237,14 +237,14 @@ def main():
                 if home_prediction == 1:
                     st.markdown("""
                     <div class="prediction-safe">
-                        ✅ POTABLE<br>
+                        POTABLE<br>
                         <small>Water is SAFE for consumption</small>
                     </div>
                     """, unsafe_allow_html=True)
                 else:
                     st.markdown("""
                     <div class="prediction-unsafe">
-                        ❌ NOT POTABLE<br>
+                        NOT POTABLE<br>
                         <small>Water is NOT SAFE for consumption</small>
                     </div>
                     """, unsafe_allow_html=True)
@@ -255,10 +255,10 @@ def main():
                 st.progress(float(home_probability[1]), text=f"Potable: {home_probability[1]*100:.1f}%")
     
     # Page: Data Exploration
-    elif page == "📊 Data Exploration":
-        st.markdown("### 📊 Data Exploration")
+    elif page == "Data Exploration":
+        st.markdown("### Data Exploration")
         
-        tab1, tab2, tab3 = st.tabs(["📋 Dataset", "📈 Distributions", "🔥 Correlation"])
+        tab1, tab2, tab3 = st.tabs(["Dataset", "Distributions", "Correlation"])
         
         with tab1:
             st.markdown("#### Dataset Preview")
@@ -304,12 +304,12 @@ def main():
             st.pyplot(fig)
     
     # Page: Model Training
-    elif page == "🤖 Model Training":
-        st.markdown("### 🤖 Model Training Results")
+    elif page == "Model Training":
+        st.markdown("### Model Training Results")
         
         # Display metrics for each model
         for model_name, metrics in results.items():
-            with st.expander(f"📌 {model_name}", expanded=True):
+            with st.expander(f"{model_name}", expanded=True):
                 col1, col2, col3, col4 = st.columns(4)
                 col1.metric("Accuracy", f"{metrics['Accuracy']*100:.2f}%")
                 col2.metric("Precision", f"{metrics['Precision']:.4f}")
@@ -335,8 +335,8 @@ def main():
         st.pyplot(fig)
     
     # Page: Prediction
-    elif page == "🔮 Prediction":
-        st.markdown("### 🔮 Make a Prediction")
+    elif page == "Prediction":
+        st.markdown("### Make a Prediction")
         
         st.markdown("Enter water quality parameters to predict if water is safe for consumption:")
         
@@ -360,7 +360,7 @@ def main():
         # Model selection
         selected_model = st.selectbox("Select Model for Prediction", list(trained_models.keys()))
         
-        if st.button("🔍 Predict Water Potability", type="primary"):
+        if st.button("Predict Water Potability", type="primary"):
             # Prepare input
             input_data = np.array([[ph, hardness, solids, chloramines, sulfate, 
                                    conductivity, organic_carbon, trihalomethanes, turbidity]])
@@ -372,7 +372,7 @@ def main():
             probability = model.predict_proba(input_scaled)[0]
             
             st.markdown("---")
-            st.markdown("### 📊 Prediction Result")
+            st.markdown("### Prediction Result")
             
             col1, col2 = st.columns(2)
             
@@ -380,14 +380,14 @@ def main():
                 if prediction == 1:
                     st.markdown("""
                     <div class="prediction-safe">
-                        ✅ POTABLE<br>
+                        POTABLE<br>
                         <small>Water is SAFE for consumption</small>
                     </div>
                     """, unsafe_allow_html=True)
                 else:
                     st.markdown("""
                     <div class="prediction-unsafe">
-                        ❌ NOT POTABLE<br>
+                        NOT POTABLE<br>
                         <small>Water is NOT SAFE for consumption</small>
                     </div>
                     """, unsafe_allow_html=True)
@@ -398,8 +398,8 @@ def main():
                 st.progress(float(probability[1]), text=f"Potable: {probability[1]*100:.1f}%")
     
     # Page: Model Comparison
-    elif page == "📈 Model Comparison":
-        st.markdown("### 📈 Model Comparison")
+    elif page == "Model Comparison":
+        st.markdown("### Model Comparison")
         
         # Comparison table
         comparison_data = []
@@ -455,11 +455,11 @@ def main():
         
         # Best model
         best_model = max(results.items(), key=lambda x: x[1]['Accuracy'])
-        st.success(f"🏆 **Best Model:** {best_model[0]} with {best_model[1]['Accuracy']*100:.2f}% accuracy")
+        st.success(f"Best Model: {best_model[0]} with {best_model[1]['Accuracy']*100:.2f}% accuracy")
     
     # Footer
     st.sidebar.markdown("---")
-    st.sidebar.markdown("### 📚 About")
+    st.sidebar.markdown("### About")
     st.sidebar.info("""
     **Water Potability Prediction System**
     
