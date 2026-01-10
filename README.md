@@ -63,16 +63,17 @@ streamlit run streamlit_app.py
 
 ```
 water-potability-prediction/
-├── streamlit_app.py                    # Streamlit web application
+├── streamlit_app.py                    # Streamlit web application (474 lines)
 ├── Water_Potability_ML_Project.ipynb   # Jupyter notebook with full analysis
-├── Water_Potability_Report_Final.docx  # Final report with mathematical formulations
-├── water_potability.csv                # Dataset
+├── water_potability.csv                # Dataset (3,276 samples)
+├── test_water_potability.py            # Pytest test suite (33 test cases)
 ├── requirements.txt                    # Python dependencies
-├── figures/                            # Generated charts and visualizations
-│   ├── 01_missing_values.png
-│   ├── 02_target_distribution.png
-│   ├── 03_correlation_heatmap.png
-│   ├── ...
+├── screenshots/                        # App validation screenshots
+│   ├── 01_home_page.png
+│   ├── 02_data_exploration.png
+│   ├── 03_model_training.png
+│   ├── 04_prediction_result.png
+│   └── 05_model_comparison.png
 └── README.md                           # Project documentation
 ```
 
