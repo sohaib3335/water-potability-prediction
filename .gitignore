@@ -1,0 +1,37 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Playwright temp files
+.playwright-mcp/
+
+# Assignment documents (submit separately, not on GitHub)
+*.docx
+*.xlsx
+*.pdf
+
+# Draft/temporary files
+Academic_Figures.md
+Project_Documentation.md
+generate_figures.py
+Test_Cases_Document.csv
+figures/
+
+# Assignment brief
+Assignment 3 - IP*.docx
+Assignment 3 - IP*.txt
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
